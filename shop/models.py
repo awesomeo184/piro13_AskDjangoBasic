@@ -1,4 +1,6 @@
+from django.conf import settings
 from django.db import models
+
 
 class Item(models.Model):
     name = models.CharField(max_length=100)
@@ -10,3 +12,7 @@ class Item(models.Model):
 
     def __str__(self):
         return f'<{self.pk}> {self.name}'
+
+# class Post(models.Model):
+#     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+# blog의 related_name 충돌이 일어남
