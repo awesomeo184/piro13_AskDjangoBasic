@@ -8,5 +8,5 @@ register_converter(FourDigitYearConverter, 'yyyy')
 app_name = 'shop'
 
 urlpatterns = [
-    path('archives/<year:yyyy>', views.archives_year)
+    path('archives/<yyyy:year>/', views.archives_year),
 ]
