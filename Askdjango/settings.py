@@ -61,7 +61,7 @@ ROOT_URLCONF = 'Askdjango.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, 'askdjango' ,'templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -128,3 +128,30 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 INTERNAL_IPS = ['127.0.0.1']
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'filters': {
+        'require_debug_true': {
+            '()': 'django.utils.log.RequireDebugTrue', },
+    },
+    'handlers': {
+        'console': {
+            'level': 'DEBUG',
+            'filters': ['require_debug_true'],
+            'class': 'logging.StreamHandler',
+        },
+    'write_to_file': {
+        'level': 'DEBUG',
+        'filters': ['require_debug_true'],
+        'class': 'logging.FileHandler', 'filename': 'db.log',
+        },
+    },
+    'loggers': {
+        'django.db.backends': {
+            'handlers': ['console', 'write_to_file'],
+            'level': 'DEBUG',
+        },
+    }
+}
