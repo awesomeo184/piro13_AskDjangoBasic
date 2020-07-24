@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% load humanize %}
+{% block content %}
+    <h2>{{ itme.name }}</h2>
+    {% if item.photo %}
+        {{ item.photo.url }}<br/>
+        {{ item.photo.path }}<br/>
+    {% endif %}
+    가격:{{ item.price|intcomma }}원
+    {% if item.desc %}
+        {{ item.desc }}
+    {% endif %}
+{% endblock %}

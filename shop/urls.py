@@ -10,4 +10,6 @@ app_name = 'shop'
 urlpatterns = [
     path('', views.index, name='index'),
     path('archives/<yyyy:year>/', views.archives_year),
+    path('<int:item_id>/', views.detail, name='detail'),
+
 ]
