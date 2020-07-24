@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+{% block content %}
+    {% if item_list %}
+        {% for item in item_list %}
+        {{ forloop.counter }}
+        <p><a href="{% url 'shop:index' %}">{{ item.name }}</a></p>
+        {% endfor %}
+
+    {% else %}
+        <p>등록된 상품이 없습니다.</p>
+    {% endif %}
+{% endblock %}
